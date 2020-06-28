@@ -12,7 +12,6 @@ class ApiService {
       return useRequest(request)
     } catch (error) {
       console.error(error)
-      
     }
   }
 
@@ -37,8 +36,18 @@ class ApiService {
       console.error()
     }
   }
-}
 
+  async fetchPostTitle(id) {
+    try {
+      const request = new Request(`${this.url}/posts/${id}/title.json`, {
+        method: 'get'
+      })
+      return useRequest(request)
+    } catch (error) {
+      console.error()
+    }
+  }
+}
 
 async function useRequest(request) {
   const response = await fetch(request)
